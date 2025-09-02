@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        keyframes: {
+          'slide-in-left': {
+            '0%': { transform: 'translateX(-50%)', opacity: '0' },
+            '100%': { transform: 'translateX(0)', opacity: '1' },
+          },
+          'slide-in-right': {
+            '0%': { transform: 'translateX(50%)', opacity: '0' },
+            '100%': { transform: 'translateX(0)', opacity: '1' },
+          },
+          'slide-in-up': {
+            '0%': { transform: 'translateY(30%)', opacity: '0' }, /* 👈 from bottom */
+            '100%': { transform: 'translateY(0)', opacity: '1' },
+          },
+          'slide-in-down': {
+            '0%': { transform: 'translateY(-30%)', opacity: '0' }, /* 👈 from top */
+            '100%': { transform: 'translateY(0)', opacity: '1' },
+          },
+        },
+        animation: {
+          'slide-in-left': 'slide-in-left 1s ease-out forwards',
+          'slide-in-right': 'slide-in-right 1s ease-out forwards',
+          'slide-in-up': 'slide-in-up 1s ease-out forwards',
+          'slide-in-down': 'slide-in-down 1s ease-out forwards',
+        },
+      },
+    },
+  }
+</script>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove("opacity-0", "animate-none");
+        // ✅ Apply animation from data attribute
+        const anim = entry.target.dataset.animate;
+        if (anim) {
+          entry.target.classList.add(anim);
+        }
+      }
+    });
+  });
+
+  document.querySelectorAll(".scroll-animate").forEach((el) => observer.observe(el));
+</script>
+
+
+  <style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-text {
+    animation: fadeInUp 1s ease-in-out;
+  }
+
+  @keyframes slide {
+
+    0%,
+    45% {
+      transform: translateX(0%);
+    }
+
+    55%,
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-slide {
+    animation: slide 6s infinite ease-in-out;
+  }</style>
+</body>
+</html>

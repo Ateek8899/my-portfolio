@@ -7,8 +7,46 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://unpkg.com/alpinejs"></script>
   <script src="https://unpkg.com/alpinejs" defer></script>
+  <link rel="stylesheet" href="animations.html">
+ 
+ <link rel="stylesheet" href="style.css">
 </head>
-<style>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        keyframes: {
+          'slide-in-left': {
+            '0%': { transform: 'translateX(-50%)', opacity: '0' },
+            '50%': { transform: 'translateX(0)', opacity: '1' },
+          },
+          'slide-in-right': {
+            '0%': { transform: 'translateX(50%)', opacity: '0' },
+            '100%': { transform: 'translateX(0)', opacity: '1' },
+          },
+          'slide-in-up': {
+            '0%': { transform: 'translateY(-30%)', opacity: '0' },
+            '100%': { transform: 'translateY(0)', opacity: '1' },
+          },
+          'slide-in-down': {
+            '0%': { transform: 'translateY(-30%)', opacity: '0' },
+            '100%': { transform: 'translateY(0)', opacity: '1' },
+          },
+        },
+        animation: {
+          'slide-in-left': 'slide-in-left 2s ease-out forwards',
+          'slide-in-right': 'slide-in-right 2s ease-out forwards',
+          'slide-in-up': 'slide-in-up 2s ease-out forwards',
+          'slide-in-down': 'slide-in-down 2s ease-out forwards',
+        },
+      },
+    },
+  }
+</script>
+
+
+
+  <style>
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -22,7 +60,7 @@
   }
 
   .animate-text {
-    animation: fadeInUp 1s ease-in-out;
+    animation: fadeInUp 2s ease-in-out;
   }
 
   @keyframes slide {
@@ -40,9 +78,7 @@
 
   .animate-slide {
     animation: slide 6s infinite ease-in-out;
-  }
-</style>
-
+  }</style>
 <body class="flex" x-data="{ open: false  }">
   <button @click="open = true" class="md:hidden fixed top-4 left-4 z-50 p-2">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -52,7 +88,7 @@
 
   <!-- 📂 Sidebar -->
   <aside
-    class="fixed top-0 left-0 w-60 md:ml-12 sm:ml-0 h-full bg-gray-100/95 backdrop-blur-sm overflow-y-auto z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300"
+    class="fixed  top-0 left-0 w-60 md:ml-0 sm:ml-0 h-full bg-gray-100/95 backdrop-blur-sm overflow-y-auto z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300"
     :class="open ? 'translate-x-0' : '-translate-x-full'">
     <div class="flex justify-end md:hidden p-4">
       <button @click="open = false">
@@ -73,32 +109,41 @@
         </p>
       </div>
 
-      <nav class="flex flex-col items-center space-y-4 font-serif uppercase">
+      <nav class="flex flex-col items-center space-y-4 font-serif uppercase px-14">
         <a href="#home"
-          class="relative block px-2  rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full">Home</a>
+          class="relative block px-2  rounded transition duration-300 after:content-[''] after:absolute after:left-0  after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full"
+          @click="open = false">Home</a>
 
         <a href="#about"
-          class="relative block px-2  rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full">About</a>
+          class="relative block px-2  rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full"
+          @click="open = false">About</a>
 
         <a href="#service"
-          class="relative block px-2  rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full">Services</a>
+          class="relative block px-2  rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full"
+          @click="open = false">Services</a>
 
         <a href="#skill"
-          class="relative block px-2 rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full">Skills</a>
+          class="relative block px-2 rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full"
+          @click="open = false">Skills</a>
 
         <a href="#education"
-          class="relative block px-2 rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full">Education</a>
+          class="relative block px-2 rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full"
+          @click="open = false">Education</a>
         <a href="#experienct"
-          class="relative block px-2 rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full">Experience</a>
+          class="relative block px-2 rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full"
+          @click="open = false">Experience</a>
 
         <a href="#work"
-          class="relative block px-2  rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full">Work</a>
+          class="relative block px-2  rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full"
+          @click="open = false">Work</a>
 
         <a href="#blog"
-          class="relative block px-2 rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full">Blog</a>
+          class="relative block px-2 rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full"
+          @click="open = false">Blog</a>
 
         <a href="#contact"
-          class="relative block px-2 rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full">Contact</a>
+          class="relative block px-2 rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full"
+          @click="open = false">Contact</a>
       </nav>
     </div>
     <p class="px-4 py-4 text-sm text-center pb-28 pt-10">© Copyright ©2025 All rights reserved | This template is made
@@ -112,7 +157,7 @@
 
   <!-- 📑 Main Content -->
   <main id="home" class=" flex-1 w-full md:pl-72">
-    <div class="relative w-full h-screen overflow-hidden shadow-lg">
+    <div class="relative w-full h-screen overflow-hidden">
 
 
       <div class="flex w-[200%] h-full animate-slide">
@@ -122,7 +167,7 @@
           style="background-image: url('images/s\ 1.webp');">
           <h1 class="text-3xl md:text-6xl font-bold animate-text text-black px-4 py-2 ml-4 font-serif ">
             Hi! <br> I am Ateek
-            <p class="text-xl bold-none pt-2 ">I Am Avaliable for you 24/7</p>
+            <p class="text-xl bold-none pt-2 ">I Am Avaliable for you any Time</p>
             <button class="px-6 py-2 border border-black text-sm rounded  transition">DOWNLOAD CV</button>
           </h1>
         </div>
@@ -136,10 +181,11 @@
         </div>
       </div>
     </div>
-    <section id="about" class="ml-10 mr-10 pt-20">
+    <section id="about" class="ml-10 mr-10 pt-20 ">
+      
       <p class="text-lg text-gray-500 tracking-wider font-sans">About Me</p><br>
       <h1 class="text-3xl font-bold pb-16 font-serif">Who AM I?</h1>
-      <p class="text-gray-700"><b>Hi I'm Jackson Ford</b> On her way she met a copy. The copy warned the Little Blind
+      <p class="text-gray-700" data-animate="slide-in-left"><b>Hi I'm Jackson Ford</b> On her way she met a copy. The copy warned the Little Blind
         Text, that where it came from it would have been rewritten a thousand times and everything that was left from
         its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe
         country.<br><br><br>
@@ -149,21 +195,21 @@
       </p><br><br>
 
       <div class="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4 gap-2 pr-1 pb-20 justify-items-center font-serif">
-        <div class="border-b-4 border-[#2C98F0] w-full sm:w-52 h-40 p-4 text-center shadow-lg shadow-gray-500 text-lg">
+        <div class="border-b-4 border-[#2C98F0] w-full sm:w-52 h-40 p-4 text-center shadow-lg shadow-gray-500 text-lg" data-animate="slide-in-up">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500 mb-4" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
           </svg>
           Development Skills
         </div>
-        <div class="border-b-4 border-[#EC5453] w-full sm:w-52 h-40 p-4 text-center shadow-lg shadow-gray-500  text-lg">
+        <div class="border-b-4 border-[#EC5453] w-full sm:w-52 h-40 p-4 text-center shadow-lg shadow-gray-500  text-lg animate-slide-in-left">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-pink-500 mb-4" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
           Design & Creativity
         </div>
-        <div class="border-b-4 border-[#F9BF3F] w-full sm:w-52 h-40 p-4 text-center shadow-lg shadow-gray-500 text-lg">
+        <div class="border-b-4 border-[#F9BF3F] w-full sm:w-52 h-40 p-4 text-center shadow-lg shadow-gray-500 text-lg animate-slide-in-right">
           <svg class="w-12 h-12 text-[#F9C34A] dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
             width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linejoin="round" stroke-width="2"
@@ -172,8 +218,8 @@
 
           <p class="pt-3">Tools & Technologies</p>
         </div>
-        <div class="border-b-4 border-[#A84CB8] w-full sm:w-52  h-40 p-4 text-center shadow-lg shadow-gray-500 text-lg">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-500 mb-4" fill="none" viewBox="0 0 24 24"
+        <div class="border-b-4 border-[#A84CB8] w-full sm:w-52  h-40 p-4  shadow-lg shadow-gray-500 text-[16px] text-center animate-slide-in-down">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12  text-green-500 mb-4" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
           </svg>
@@ -181,21 +227,21 @@
         </div>
       </div>
       <div class="grid grid-cols-1 ">
-        <div class="w-full px-8 py-8 h-70 p-8  text-4xl font-serif bg-[#F9BF3F]">
+        <div class="w-full px-8 py-8 h-70 p-8  text-4xl font-serif bg-[#F9BF3F] animate-slide-in-left">
           I am happy to know you<br>
           that 300+ projects done sucessfully!<br><br>
           <button class="text-sm border-2 px-4 border-black">HIRE ME</button>
         </div>
       </div>
     </section>
-    <section id="service" class=" shadow-2xl shadow-gray-500 py-12 pt-32">
-      <div class="max-w-6xl mx-auto pl-10 pr-16">
+    <section id="service"  class=" py-12 pt-32 pb-40">
+      <div class="max-w-6xl mx-auto pl-10 pr-16 animate-slide-in-left">
         <h2 class="text-3xl  uppercase mb-10 font-serif leading-2"><span
             class="text-sm text-gray-500 font-serif pb-2 ">What I do?</span><br>
           Here are some of my<br> expertise
         </h2>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pt-16 gap-y-32">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pt-16 gap-y-32 animate-slide-in-up">
 
           <!-- Card 1 -->
           <div class="relative bg-white  shadow-xl border-b-4 border-[#2C98F0] h-72  pt-20 px-8 text-center">
@@ -297,50 +343,51 @@
         </div>
       </div>
     </section>
-    <section class="relative min-h-[180px] sm:min-h-[220px] bg-fixed bg-center bg-cover mt-[160px]"
+    <section class="relative min-h-[180px] sm:min-h-[220px] bg-fixed bg-center bg-cover "
       style="background-image: url('images/cover_bg_1.jpg.webp');">
 
-     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-white bg-black bg-opacity-40 p-20 text-center">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-white bg-black bg-opacity-40 p-20 text-center">
 
-  <div class="flex flex-col items-center justify-center">
-    <span class="text-4xl font-bold counter" data-target="309">0</span>
-    <span class="text-lg leading-loose tracking-widest text-gray-300">Cups of Coffee</span>
-  </div>
+        <div class="flex flex-col items-center justify-center">
+          <span class="text-4xl font-bold counter" data-target="309">0</span>
+          <span class="text-lg leading-loose tracking-widest text-gray-300">Cups of Coffee</span>
+        </div>
 
-  <div class="flex flex-col items-center justify-center">
-    <span class="text-4xl font-bold counter" data-target="356">0</span>
-    <span class="text-lg leading-loose tracking-widest text-gray-300">Projects</span>
-  </div>
+        <div class="flex flex-col items-center justify-center">
+          <span class="text-4xl font-bold counter" data-target="356">0</span>
+          <span class="text-lg leading-loose tracking-widest text-gray-300">Projects</span>
+        </div>
 
-  <div class="flex flex-col items-center justify-center">
-    <span class="text-4xl font-bold counter" data-target="30">0</span>
-    <span class="text-lg leading-loose tracking-widest text-gray-300">Clients</span>
-  </div>
+        <div class="flex flex-col items-center justify-center">
+          <span class="text-4xl font-bold counter" data-target="30">0</span>
+          <span class="text-lg leading-loose tracking-widest text-gray-300">Clients</span>
+        </div>
 
-  <div class="flex flex-col items-center justify-center">
-    <span class="text-4xl font-bold counter" data-target="10">0</span>
-    <span class="text-lg leading-loose tracking-widest text-gray-300">Partners</span>
-  </div>
+        <div class="flex flex-col items-center justify-center">
+          <span class="text-4xl font-bold counter" data-target="10">0</span>
+          <span class="text-lg leading-loose tracking-widest text-gray-300">Partners</span>
+        </div>
 
-</div>
+      </div>
     </section>
 
-    <section id="skill" class="mt-24 pl-10 pr-16 mb-16">
+    <section id="skill" class="mt-24 pl-10 pr-3 md:pr-10 mb-16">
       <!-- Skill Item -->
       <div class="mb-12">
         <p class="text-sm text-gray-400 uppercase tracking-widest">My Specialty</p><br>
-        <h2 class="text-3xl font-bold uppercase font-serif">My Skills</h2><br><br>
-        <p class="mt-4 max-w-4xl text-gray-500">
+        <h2 class="text-3xl font-bold uppercase font-serif ">My Skills</h2><br><br>
+        <p class="mt-4 max-w-4xl text-gray-500 animate-slide-in-right">
           The Big Oxmox advised her not to do so, because there were thousands of bad Commas,
           wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.
           She packed her seven versalia, put her initial into the belt and made herself on the way.
         </p>
       </div>
-      <div class="grid md:grid-cols-2 gap-10 mr-16">
+      <div class="grid md:grid-cols-2 gap-10 mr-16 ">
 
 
-        <div>
-          <div class="flex justify-between mb-1">
+        <div class="animate-slide-in-left">
+          <div class="flex justify-between mb-1 ">
             <span>Photoshop</span>
             <span class="text-blue-600 font-bold">75%</span>
           </div>
@@ -349,7 +396,7 @@
           </div>
         </div>
 
-        <div>
+        <div class="animate-slide-in-right">
           <div class="flex justify-between mb-1">
             <span>jQuery</span>
             <span class="text-red-500 font-bold">60%</span>
@@ -359,8 +406,8 @@
           </div>
         </div>
 
-        <div>
-          <div class="flex justify-between mb-1">
+        <div class="animate-slide-in-left">
+          <div class="flex justify-between mb-1 ">
             <span>HTML5</span>
             <span class="text-yellow-500 font-bold">85%</span>
           </div>
@@ -369,7 +416,7 @@
           </div>
         </div>
 
-        <div>
+         <div class="animate-slide-in-right">
           <div class="flex justify-between mb-1">
             <span>CSS3</span>
             <span class="text-purple-500 font-bold">90%</span>
@@ -379,8 +426,8 @@
           </div>
         </div>
 
-        <div>
-          <div class="flex justify-between mb-1">
+        <div class="animate-slide-in-left">
+          <div class="flex justify-between mb-1 ">
             <span>WordPress</span>
             <span class="text-teal-500 font-bold">70%</span>
           </div>
@@ -389,7 +436,7 @@
           </div>
         </div>
 
-        <div>
+        <div class="animate-slide-in-right">
           <div class="flex justify-between mb-1">
             <span>SEO</span>
             <span class="text-indigo-600 font-bold">80%</span>
@@ -401,11 +448,11 @@
 
     </section>
     <!-- Education Item -->
-    <section id="education" class="py-16 px-6 pr-24 pt-28">
+    <section id="education" class="py-16 px-6  pt-28 ">
       <h2 class="text-sm text-gray-400 tracking-[5px] mb-2 leading-2 uppercase font-serif">Education</h2>
-      <h2 class="text-3xl font-bold mb-20 tracking-[5px] uppercase font-serif">Education</h2>
+      <h2 class="text-3xl font-bold mb-20 tracking-[5px] uppercase font-serif animate-slide-in-up">Education</h2>
 
-      <div class="space-y-3">
+      <div class="space-y-2 animate-slide-in-up">
 
 
         <div x-data="{ open: false }"
@@ -497,7 +544,7 @@
           </div>
         </div>
     </section>
-    <section id="experienct" class="mt-[50px]">
+    <section id="experienct" class="mt-[50px] pl-2">
       <div class="max-w-4xl mx-auto ">
         <p class="tracking-[4px] uppercase pl-2">Experience</p><br>
         <h2 class="text-xl font-bold mb-8 tracking-[4px]  pl-2 font-serif uppercase">Work Experience</h2><br>
@@ -524,7 +571,7 @@
             </div>
 
 
-            <div class="bg-gray-200 shadow-md rounded-xl p-6">
+            <div class="bg-gray-200 shadow-md rounded-xl p-6 animate-slide-in-left">
               <h3 class="text-xl font-semibold">Full Stack Developer </h3>
               <p class="text-gray-500 text-sm">2017-2018</p>
               <p class="mt-3 text-gray-600">
@@ -546,7 +593,7 @@
 
             </div>
 
-            <div class="bg-gray-200 shadow-md rounded-xl p-6">
+            <div class="bg-gray-200 shadow-md rounded-xl p-6 animate-slide-in-right">
               <h3 class="text-xl font-semibold">Front End Developer at Google Company</h3>
               <p class="text-gray-500 text-sm">2020 – 2022</p>
               <p class="mt-3 text-gray-600">
@@ -569,7 +616,7 @@
 
             </div>
 
-            <div class="bg-gray-200 shadow-md rounded-xl p-6">
+            <div class="bg-gray-200 shadow-md rounded-xl p-6  animate-slide-in-down">
               <h3 class="text-xl font-semibold">Intern</h3>
               <p class="text-gray-500 text-sm">2019 – 2020</p>
               <p class="mt-3 text-gray-600">Even the all-powerful Pointing has no control about the blind texts it is an
@@ -589,7 +636,7 @@
 
             </div>
 
-            <div class="bg-gray-200 shadow-md rounded-xl p-6">
+            <div class="bg-gray-200 shadow-md rounded-xl p-6 animate-slide-in-left">
               <h3 class="text-xl font-semibold">Intern</h3>
               <p class="text-gray-500 text-sm">2019 – 2020</p>
               <p class="mt-3 text-gray-600">Even the all-powerful Pointing has no control about the blind texts it is an
@@ -609,7 +656,7 @@
 
             </div>
 
-            <div class="bg-gray-200 shadow-md rounded-xl p-6">
+            <div class="bg-gray-200 shadow-md rounded-xl p-6 animate-slide-in-right">
               <h3 class="text-xl font-semibold">Intern</h3>
               <p class="text-gray-500 text-sm">2019 – 2020</p>
               <p class="mt-3 text-gray-600">Even the all-powerful Pointing has no control about the blind texts it is an
@@ -622,8 +669,8 @@
     </section>
     <section id="work" class="mt-52 ml-10 mr-10">
       <p class="text-sm text-gray-600 uppercase tracking-[4px]">My Work</p>
-      <h1 class="text-2xl tracking[4px] uppercase tracking-[4px] font-bold font-serif">Recent Work</h1>
-      <button class="pt-10 flex gap-4 pb-10">
+      <h1 class="text-2xl tracking[4px] uppercase tracking-[4px] font-bold font-serif animate-slide-in-right">Recent Work</h1>
+      <button class="pt-10 flex gap-4 pb-10 animate-slide-in-left">
         <a href="" class="text-blue-800">Graphic Design</a>
         <a href="">Web Design</a>
         <a href=""> Software</a>
@@ -659,9 +706,9 @@
 
 
             <div
-              class="absolute bottom-4 left-0 w-full flex justify-around text-white opacity-0 group-hover:opacity-100 transition duration-300">
+              class="absolute bottom-4 left-0 w-full flex justify-around text-white opacity-0 group-hover:opacity-100 transition duration-300 animate-slide-in-">
 
-              <span class="flex items-center gap-1">
+              <span class="flex items-center gap-1 ">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M15 8a3 3 0 11-6 0 3 3 0 016 0zM2 14s1-1 4-1 4 1 4 1v1H2v-1z" />
                 </svg> 1.2k
@@ -857,7 +904,7 @@
             </div>
 
             <div
-              class="absolute bottom-4 left-0 w-full flex justify-around text-white opacity-0 group-hover:opacity-100 transition duration-300">
+              class="absolute bottom-4 left-0 w-full flex justify-around text-white opacity-0 group-hover:opacity-100 transition duration-300 ">
 
               <span class="flex items-center gap-1">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -881,7 +928,7 @@
           </div>
 
         </div>
-        <button class="w-full h-[60px] bg-blue-500 text-white mt-10 uppercase
+        <button class="w-full h-[60px] bg-blue-500 text-white mt-10 uppercase animate-slide-in-up
       ">Learn More</button>
       </div>
     </section>
@@ -892,7 +939,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-          <div class="bg-white  shadow-md overflow-hidden">
+          <div class="bg-white  shadow-md overflow-hidden animate-slide-in-left">
             <div class="overflow-hidden">
               <img src="images/c1.webp" alt="Service 1"
                 class="w-full h-56 object-cover transform transition duration-500 hover:scale-110">
@@ -907,7 +954,7 @@
           </div>
 
           <!-- Card 2 -->
-          <div class="bg-white shadow-md overflow-hidden">
+          <div class="bg-white shadow-md overflow-hidden animate-slide-in-up">
             <div class="overflow-hidden">
               <img src="images/c2.webp" alt="Service 2"
                 class="w-full h-56 object-cover transform transition duration-500 hover:scale-110">
@@ -922,7 +969,7 @@
           </div>
 
           <!-- Card 3 -->
-          <div class="bg-white  shadow-md overflow-hidden">
+          <div class="bg-white  shadow-md overflow-hidden animate-slide-in-right">
             <div class="overflow-hidden">
               <img src="images/c3.webp" alt="Service 3"
                 class="w-full h-56 object-cover transform transition duration-500 hover:scale-110">
@@ -937,17 +984,17 @@
           </div>
 
         </div>
-        <button class="w-full h-[60px] bg-blue-500 text-white mt-10">Learn More</button>
+        <button class="w-full h-[60px] bg-blue-500 text-white mt-10 animate-slide-in-up animate-slide-in-left">Learn More</button>
       </div>
     </section>
     <p class="tracking-[3px] pl-6 pt-10 text-sm sm:text-base pb-2">Get in Touch</p>
-    <h2 class="text-3xl font-bold mb-8 tracking-[3px] pl-6 font-serif">CONTACT</h2>
+    <h2 class="text-3xl font-bold mb-8 tracking-[3px] pl-6 font-serif animate-slide-in-left">CONTACT</h2>
     <!-- start contact -->
     <section id="contact" class="grid grid-cols-12 gap-6 px-6 pb-24">
 
       <div class="col-span-12 md:col-span-5 space-y-4 md:pl-6 flex flex-col justify-start">
 
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-4 animate-slide-in-left">
           <div class="w-24 h-24 bg-gray-200 flex items-center justify-center ">
             <svg class="w-12 h-12 text-blue-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
               width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -960,7 +1007,7 @@
         </div>
 
 
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-4 animate-slide-in-left">
           <div class="w-24 h-24 bg-gray-200 flex items-center justify-center ">
             <svg class="w-12 h-12 text-blue-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
               width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -972,7 +1019,7 @@
           <p class="text-2xl">03320763189</p>
         </div>
 
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-4 animate-slide-in-left">
           <div class="w-24 h-24 bg-gray-200 flex items-center justify-center ">
             <svg class="w-12 h-12 text-blue-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
               width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -986,9 +1033,9 @@
         </div>
       </div>
 
-      <div class="hidden md:block md:col-span-1"></div>
+      <div class="hidden md:block md:col-span-1 "></div>
 
-      <form class="col-span-12 md:col-span-6 space-y-4">
+      <form class="col-span-12 md:col-span-6 space-y-4 animate-slide-in-right">
         <input type="text" placeholder="Enter your name"
           class="w-full px-4 py-3 border bg-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
         <input type="email" placeholder="Enter your email"
@@ -1003,27 +1050,27 @@
         </div>
       </form>
     </section>
-<script>
-  const counters = document.querySelectorAll('.counter');
+    <script>
+      const counters = document.querySelectorAll('.counter');
 
-  counters.forEach(counter => {
-    const updateCount = () => {
-      const target = +counter.getAttribute('data-target');
-      const count = +counter.innerText;
+      counters.forEach(counter => {
+        const updateCount = () => {
+          const target = +counter.getAttribute('data-target');
+          const count = +counter.innerText;
 
-      const increment = target / 100; // change 100 for speed
+          const increment = target / 100; // change 100 for speed
 
-      if(count < target) {
-        counter.innerText = Math.ceil(count + increment);
-        setTimeout(updateCount, 20); // adjust 20 for speed
-      } else {
-        counter.innerText = target;
-      }
-    };
+          if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 20); // adjust 20 for speed
+          } else {
+            counter.innerText = target;
+          }
+        };
 
-    updateCount();
-  });
-</script>
+        updateCount();
+      });
+    </script>
 </body>
 
 </html>
