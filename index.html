@@ -8,8 +8,8 @@
   <script defer src="https://unpkg.com/alpinejs"></script>
   <script src="https://unpkg.com/alpinejs" defer></script>
   <link rel="stylesheet" href="animations.html">
- 
- <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 <script>
   tailwind.config = {
@@ -43,10 +43,16 @@
     },
   }
 </script>
-
-
-
-  <style>
+<!-- download file pdf -->
+<script>
+  function downloadFile() {
+    const link = document.createElement("a");
+    link.href = "Ateek.pdf";      // 👈 make sure Ateek.pdf is in the same folder
+    link.download = "Ateek.pdf"; // 👈 file name when saved
+    link.click();
+  }
+</script>
+<style>
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -78,10 +84,12 @@
 
   .animate-slide {
     animation: slide 6s infinite ease-in-out;
-  }</style>
+  }
+</style>
+
 <body class="flex" x-data="{ open: false  }">
   <button @click="open = true" class="md:hidden fixed top-4 left-4 z-50 p-2">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
     </svg>
   </button>
@@ -129,7 +137,7 @@
         <a href="#education"
           class="relative block px-2 rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full"
           @click="open = false">Education</a>
-        <a href="#experienct"
+        <a href="#experience"
           class="relative block px-2 rounded transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full"
           @click="open = false">Experience</a>
 
@@ -164,11 +172,13 @@
 
 
         <div class="w-1/2 h-full flex items-center  bg-cover bg-center text-white"
-          style="background-image: url('images/s\ 1.webp');">
+          style="background-image: url('images/dp-2.png');">
           <h1 class="text-3xl md:text-6xl font-bold animate-text text-black px-4 py-2 ml-4 font-serif ">
             Hi! <br> I am Ateek
             <p class="text-xl bold-none pt-2 ">I Am Avaliable for you any Time</p>
-            <button class="px-6 py-2 border border-black text-sm rounded  transition">DOWNLOAD CV</button>
+            <button onclick="downloadFile()" class="px-6 py-2 border border-black text-sm rounded transition">
+              DOWNLOAD CV
+            </button>
           </h1>
         </div>
         <div class="w-1/2 h-full flex items-center  bg-cover bg-center text-white"
@@ -176,65 +186,88 @@
           <h1 class="text-3xl md:text-6xl font-bold animate-text text-black px-4 py-2 ml-4 font-serif">
             Hi! <br> I am Designer
             <p class="text-xl bold-none pt-2 ">Hi Can I help YOu</p>
-            <button class="px-6 py-2 border border-black text-sm rounded  transition">DOWNLOAD CV</button>
+            <button onclick="downloadFile()" class="px-6 py-2 border border-black text-sm rounded transition">
+              DOWNLOAD CV
+            </button>
           </h1>
         </div>
       </div>
     </div>
     <section id="about" class="ml-10 mr-10 pt-20 ">
-      
+
       <p class="text-lg text-gray-500 tracking-wider font-sans">About Me</p><br>
       <h1 class="text-3xl font-bold pb-16 font-serif">Who AM I?</h1>
-      <p class="text-gray-700" data-animate="slide-in-left"><b>Hi I'm Jackson Ford</b> On her way she met a copy. The copy warned the Little Blind
-        Text, that where it came from it would have been rewritten a thousand times and everything that was left from
-        its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe
-        country.<br><br><br>
+      <p class="text-gray-700 font-serif leading-loose\" data-animate="slide-in-left"><span class="font-bold">Hi! I’m
+          Ateek, a passionate Web Developer and Frontend Designer.</span> I completed my<span class="font-bold">
+          Bachelor’s degree in IT in 2025 </span>and started my professional journey by focusing on creating clean,
+        responsive, and modern user interfaces. With <em>over one year of experience in frontend design,</em> I have
+        worked extensively with <span class="font-bold">HTML, CSS, Tailwind CSS, and JavaScript</span> to build
+        user-friendly websites. Designing smooth layouts and delivering a great user experience is what I enjoy the most
+        in my work.<br>
 
-        Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day
-        however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
+        Along with frontend, I have also<em> worked on backend development </em>using the <span class="font-bold">Django
+          framework,</span> where I gained practical knowledge of building and managing website functionalities. Over
+        time, I have <span class="font-bold">completed and maintained more than 10 projects,</span> including business
+        websites, personal portfolios, and E-Commerce website. My career goal is to grow into a <span
+          class="font-bold">Full-stack developer,</span> combining my strong frontend skills with solid backend
+        expertise.<br>
+
+        You can check my coding journey and explore my projects on my <span class="font-bold"> GitHub profile,</span>
+        where I regularly upload my work and experiments with new technologies.<em> I love learning, problem-solving,
+          and creating websites that make a real impact.</em>
       </p><br><br>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4 gap-2 pr-1 pb-20 justify-items-center font-serif">
-        <div class="border-b-4 border-[#2C98F0] w-full sm:w-52 h-40 p-4 text-center shadow-lg shadow-gray-500 text-lg" data-animate="slide-in-up">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4 gap-2 pr-1 pb-20 justify-items-center font-serif font-bold">
+        <div
+          class="border-b-4  border-[#2C98F0] w-full sm:w-52 h-40 p-4  bg-gray-300 text-center  shadow-gray-500 text-lg pb-2 sm:pb-4 shadow-none"
+          data-animate="slide-in-up">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-pink-500 mb-4" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+
+          Design & Creativity
+        </div>
+        <div
+          class="border-b-4 border-[#EC5453] w-full sm:w-52 h-40 p-4  bg-gray-300 text-center  shadow-gray-500  text-lg animate-slide-in-left pb-2 sm:pb-4">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500 mb-4" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
           </svg>
           Development Skills
         </div>
-        <div class="border-b-4 border-[#EC5453] w-full sm:w-52 h-40 p-4 text-center shadow-lg shadow-gray-500  text-lg animate-slide-in-left">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-pink-500 mb-4" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-          </svg>
-          Design & Creativity
-        </div>
-        <div class="border-b-4 border-[#F9BF3F] w-full sm:w-52 h-40 p-4 text-center shadow-lg shadow-gray-500 text-lg animate-slide-in-right">
+        <div
+          class="border-b-4 border-[#F9BF3F] w-full sm:w-52 h-40 p-4 bg-gray-300 text-center  shadow-gray-500 text-lg animate-slide-in-right pb-8 sm:pb-4">
           <svg class="w-12 h-12 text-[#F9C34A] dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
             width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-linejoin="round" stroke-width="2"
               d="M7.58209 8.96025 9.8136 11.1917l-1.61782 1.6178c-1.08305-.1811-2.23623.1454-3.07364.9828-1.1208 1.1208-1.32697 2.8069-.62368 4.1363.14842.2806.42122.474.73509.5213.06726.0101.1347.0133.20136.0098-.00351.0666-.00036.1341.00977.2013.04724.3139.24069.5867.52125.7351 1.32944.7033 3.01552.4971 4.13627-.6237.8375-.8374 1.1639-1.9906.9829-3.0736l4.8107-4.8108c1.0831.1811 2.2363-.1454 3.0737-.9828 1.1208-1.1208 1.3269-2.80688.6237-4.13632-.1485-.28056-.4213-.474-.7351-.52125-.0673-.01012-.1347-.01327-.2014-.00977.0035-.06666.0004-.13409-.0098-.20136-.0472-.31386-.2406-.58666-.5212-.73508-1.3294-.70329-3.0155-.49713-4.1363.62367-.8374.83741-1.1639 1.9906-.9828 3.07365l-1.7788 1.77875-2.23152-2.23148-1.41419 1.41424Zm1.31056-3.1394c-.04235-.32684-.24303-.61183-.53647-.76186l-1.98183-1.0133c-.38619-.19746-.85564-.12345-1.16234.18326l-.86321.8632c-.3067.3067-.38072.77616-.18326 1.16235l1.0133 1.98182c.15004.29345.43503.49412.76187.53647l1.1127.14418c.3076.03985.61628-.06528.8356-.28461l.86321-.8632c.21932-.21932.32446-.52801.2846-.83561l-.14417-1.1127ZM19.4448 16.4052l-3.1186-3.1187c-.7811-.781-2.0474-.781-2.8285 0l-.1719.172c-.7811.781-.7811 2.0474 0 2.8284l3.1186 3.1187c.7811.781 2.0474.781 2.8285 0l.1719-.172c.7811-.781.7811-2.0474 0-2.8284Z" />
           </svg>
 
-          <p class="pt-3">Tools & Technologies</p>
+          <p class="pt-4">Backend</p>
         </div>
-        <div class="border-b-4 border-[#A84CB8] w-full sm:w-52  h-40 p-4  shadow-lg shadow-gray-500 text-[16px] text-center animate-slide-in-down">
+        <div
+          class="border-b-4 border-[#A84CB8] w-full sm:w-52  h-40 p-4   bg-gray-300 shadow-gray-500 text-[16px] text-center animate-slide-in-down pb-8 sm:pb-4">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12  text-green-500 mb-4" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
           </svg>
-          Soft Skills / Properties
+          Tools & Technologies
         </div>
       </div>
       <div class="grid grid-cols-1 ">
         <div class="w-full px-8 py-8 h-70 p-8  text-4xl font-serif bg-[#F9BF3F] animate-slide-in-left">
           I am happy to know you<br>
-          that 300+ projects done sucessfully!<br><br>
-          <button class="text-sm border-2 px-4 border-black">HIRE ME</button>
+          that 10+ projects done sucessfully!<br><br>
+          <a href="https://github.com/"
+            class="text-sm border-2 px-6 py-2 font-bold hover:bg-black hover:text-white hover:border-white border-black inline-block">
+            PROJECTS
+          </a>
         </div>
       </div>
     </section>
-    <section id="service"  class=" py-12 pt-32 pb-40">
+    <section id="service" class=" py-12 pt-32 pb-40">
       <div class="max-w-6xl mx-auto pl-10 pr-16 animate-slide-in-left">
         <h2 class="text-3xl  uppercase mb-10 font-serif leading-2"><span
             class="text-sm text-gray-500 font-serif pb-2 ">What I do?</span><br>
@@ -256,8 +289,9 @@
               </svg>
 
             </div>
-            <h3 class="mt-10 text-xl font-semibold">Innovative Ideas</h3>
-            <p class="mt-6 text-gray-400">Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
+            <h3 class="mt-10 text-xl font-semibold">Frontend Development</h3>
+            <p class="mt-6 text-gray-400">I create responsive and modern websites using HTML, CSS, Tailwind CSS, and
+              JavaScript, focusing on clean design and smooth user experience.</p>
           </div>
 
           <!-- Card 2 -->
@@ -272,8 +306,9 @@
               </svg>
 
             </div>
-            <h3 class="mt-10 text-xl font-semibold">Software</h3>
-            <p class="mt-6 text-gray-400">Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
+            <h3 class="mt-10 text-xl font-semibold">Backend Development</h3>
+            <p class="mt-6 text-gray-400">I have experience working with the Django framework and Python to build and
+              maintain functional and secure web applications.</p>
           </div>
 
           <!-- Card 3 -->
@@ -289,8 +324,9 @@
               </svg>
 
             </div>
-            <h3 class="mt-10 text-xl font-semibold">Application</h3>
-            <p class="mt-6 text-gray-400">Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
+            <h3 class="mt-10 text-xl font-semibold">Web Applications</h3>
+            <p class="mt-6 text-gray-400">I have successfully completed 10+ projects, including business websites,
+              portfolios, and interactive applications that solve real-world problems.</p>
           </div>
           <!-- Card 4 -->
           <div class="relative bg-white  shadow-xl border-b-4 border-[#A84CB8] h-72 pt-20 px-8 text-center">
@@ -304,8 +340,9 @@
               </svg>
 
             </div>
-            <h3 class="mt-10 text-xl font-semibold">Graphic Design</h3>
-            <p class="mt-6 text-gray-400">Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
+            <h3 class="mt-10 text-xl font-semibold">UI/UX & Design</h3>
+            <p class="mt-6 text-gray-400">With an eye for design, I work on creating user-friendly layouts that are both
+              attractive and functional, ensuring a great digital experience.</p>
           </div>
 
           <!-- Card 5 -->
@@ -319,8 +356,9 @@
                   d="M19 6c0 1.657-3.134 3-7 3S5 7.657 5 6m14 0c0-1.657-3.134-3-7-3S5 4.343 5 6m14 0v6M5 6v6m0 0c0 1.657 3.134 3 7 3s7-1.343 7-3M5 12v6c0 1.657 3.134 3 7 3s7-1.343 7-3v-6" />
               </svg>
             </div>
-            <h3 class="mt-10 text-xl font-semibold">Software</h3>
-            <p class="mt-6 text-gray-400">Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
+            <h3 class="mt-10 text-xl font-semibold">Version Control</h3>
+            <p class="mt-6 text-gray-400">I use GitHub for managing code, collaborating on projects, and showcasing my
+              work to the developer community.</p>
           </div>
 
           <!-- Card 6 -->
@@ -337,7 +375,8 @@
 
             </div>
             <h3 class="mt-10 text-xl font-semibold">Application</h3>
-            <p class="mt-6 text-gray-400">Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+            <p class="mt-6 text-gray-400">I have worked on 10+ real-world projects, from simple landing pages to
+              complete business websites, gaining strong problem-solving skills.</p>
           </div>
 
         </div>
@@ -350,22 +389,22 @@
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-white bg-black bg-opacity-40 p-20 text-center">
 
         <div class="flex flex-col items-center justify-center">
-          <span class="text-4xl font-bold counter" data-target="309">0</span>
+          <span class="text-4xl font-bold counter" data-target="100">0</span>
           <span class="text-lg leading-loose tracking-widest text-gray-300">Cups of Coffee</span>
         </div>
 
         <div class="flex flex-col items-center justify-center">
-          <span class="text-4xl font-bold counter" data-target="356">0</span>
+          <span class="text-4xl font-bold counter" data-target="10">0</span>
           <span class="text-lg leading-loose tracking-widest text-gray-300">Projects</span>
         </div>
 
         <div class="flex flex-col items-center justify-center">
-          <span class="text-4xl font-bold counter" data-target="30">0</span>
+          <span class="text-4xl font-bold counter" data-target="5">0</span>
           <span class="text-lg leading-loose tracking-widest text-gray-300">Clients</span>
         </div>
 
         <div class="flex flex-col items-center justify-center">
-          <span class="text-4xl font-bold counter" data-target="10">0</span>
+          <span class="text-4xl font-bold counter" data-target="1">0</span>
           <span class="text-lg leading-loose tracking-widest text-gray-300">Partners</span>
         </div>
 
@@ -378,9 +417,11 @@
         <p class="text-sm text-gray-400 uppercase tracking-widest">My Specialty</p><br>
         <h2 class="text-3xl font-bold uppercase font-serif ">My Skills</h2><br><br>
         <p class="mt-4 max-w-4xl text-gray-500 animate-slide-in-right">
-          The Big Oxmox advised her not to do so, because there were thousands of bad Commas,
-          wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.
-          She packed her seven versalia, put her initial into the belt and made herself on the way.
+          I have strong frontend skills in HTML, CSS, Tailwind CSS, and JavaScript, creating responsive and modern
+          designs.
+          I also have experience with backend development using Django and Python, building and maintaining web
+          applications.
+          I regularly use GitHub for version control and project management, showcasing 10+ completed projects.
         </p>
       </div>
       <div class="grid md:grid-cols-2 gap-10 mr-16 ">
@@ -388,61 +429,61 @@
 
         <div class="animate-slide-in-left">
           <div class="flex justify-between mb-1 ">
-            <span>Photoshop</span>
-            <span class="text-blue-600 font-bold">75%</span>
+            <span class="font-bold">HTML</span>
+            <span class="text-blue-600 font-bold">90%</span>
           </div>
           <div class="w-full bg-gray-200 h-2 rounded">
-            <div class="bg-blue-500 h-2 rounded-l" style="width: 75%"></div>
+            <div class="bg-blue-500 h-2 rounded-l" style="width: 90%"></div>
           </div>
         </div>
 
         <div class="animate-slide-in-right">
           <div class="flex justify-between mb-1">
-            <span>jQuery</span>
-            <span class="text-red-500 font-bold">60%</span>
+            <span class="font-bold">CSS</span>
+            <span class="text-red-500 font-bold">85%</span>
           </div>
           <div class="w-full bg-gray-200 h-2 rounded">
-            <div class="bg-red-400 h-2 rounded-l" style="width: 60%"></div>
+            <div class="bg-red-400 h-2 rounded-l" style="width: 85%"></div>
           </div>
         </div>
 
         <div class="animate-slide-in-left">
           <div class="flex justify-between mb-1 ">
-            <span>HTML5</span>
-            <span class="text-yellow-500 font-bold">85%</span>
+            <span class="font-bold">Tailwindcss</span>
+            <span class="text-yellow-500 font-bold">70%</span>
           </div>
           <div class="w-full bg-gray-200 h-2 rounded">
-            <div class="bg-yellow-400 h-2 rounded-l" style="width: 85%"></div>
-          </div>
-        </div>
-
-         <div class="animate-slide-in-right">
-          <div class="flex justify-between mb-1">
-            <span>CSS3</span>
-            <span class="text-purple-500 font-bold">90%</span>
-          </div>
-          <div class="w-full bg-gray-200 h-2 rounded">
-            <div class="bg-gradient-to-r from-purple-400 to-pink-500 h-2 rounded-l" style="width: 90%"></div>
-          </div>
-        </div>
-
-        <div class="animate-slide-in-left">
-          <div class="flex justify-between mb-1 ">
-            <span>WordPress</span>
-            <span class="text-teal-500 font-bold">70%</span>
-          </div>
-          <div class="w-full bg-gray-200 h-2 rounded">
-            <div class="bg-teal-500 h-2 rounded-l" style="width: 70%"></div>
+            <div class="bg-yellow-400 h-2 rounded-l" style="width: 70%"></div>
           </div>
         </div>
 
         <div class="animate-slide-in-right">
           <div class="flex justify-between mb-1">
-            <span>SEO</span>
-            <span class="text-indigo-600 font-bold">80%</span>
+            <span class="font-bold">Java Script</span>
+            <span class="text-purple-500 font-bold">50%</span>
           </div>
           <div class="w-full bg-gray-200 h-2 rounded">
-            <div class="bg-indigo-600 h-2 rounded-l" style="width: 80%"></div>
+            <div class="bg-gradient-to-r from-purple-400 to-pink-500 h-2 rounded-l" style="width: 50%"></div>
+          </div>
+        </div>
+
+        <div class="animate-slide-in-left">
+          <div class="flex justify-between mb-1 ">
+            <span class="font-bold">Python</span>
+            <span class="text-teal-500 font-bold">60%</span>
+          </div>
+          <div class="w-full bg-gray-200 h-2 rounded">
+            <div class="bg-teal-500 h-2 rounded-l" style="width: 60%"></div>
+          </div>
+        </div>
+
+        <div class="animate-slide-in-right">
+          <div class="flex justify-between mb-1">
+            <span class="font-bold">Django</span>
+            <span class="text-indigo-600 font-bold">60%</span>
+          </div>
+          <div class="w-full bg-gray-200 h-2 rounded">
+            <div class="bg-indigo-600 h-2 rounded-l" style="width: 60%"></div>
           </div>
         </div>
 
@@ -458,7 +499,7 @@
         <div x-data="{ open: false }"
           :class="open ? 'bg-blue-500 text-white border mb-2 shadow ' : 'bg-gray-200 text-gray-800 border mb-2 shadow p-4 '">
           <div class="flex justify-between items-center ">
-            <span class="text-lg font-semibold mt-2 ml-2 uppercase">Bachelor in Computer Science</span>
+            <span class="text-lg font-semibold mt-2 ml-2 uppercase">Bachelor</span>
             <button class="text-2xl font-bold focus:outline-none  " @click="open = !open">
               <span x-show="!open">+</span>
               <span x-show="open" class="mr-4">−</span>
@@ -466,13 +507,13 @@
           </div>
           <div x-show="open" x-transition class=" pt-6">
             <div class="box border-2 border-gray-300 px-6 py-6 text-black bg-white ">
-              Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
-              blind
-              texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-              <ul>
-                <li>Separated they live in Bookmarksgrove right</li>
-                <li>Separated they live in Bookmarksgrove right</li>
-              </ul>
+              <span class="pl-30 text-3xl font-serif">
+                <span class="font-bold"></span> <span class="font-bold">Bachelor<span class="text-xl">(Information
+                    Technology) </span></span>–Universty Of Agricalture
+                Faisalabad<br>
+                Year: 2021-2025<br>
+                CGPA: 2.8 / 4.0 (71%)
+              </span>
             </div>
           </div>
         </div>
@@ -481,21 +522,21 @@
         <div x-data="{ open: false }"
           :class="open ? 'bg-blue-500 text-white border mb-2 shadow ' : 'bg-gray-200 text-gray-800 border mb-2 shadow p-4 '">
           <div class="flex justify-between items-center ">
-            <span class="text-lg font-semibold mt-2 ml-2 uppercase">Bachelor in Computer Science</span>
+            <span class="text-lg font-semibold mt-2 ml-2 uppercase">Diploma of Associate Engineer (DAE)</span>
             <button class="text-2xl font-bold focus:outline-none  " @click="open = !open">
               <span x-show="!open">+</span>
               <span x-show="open" class="mr-4">−</span>
             </button>
           </div>
           <div x-show="open" x-transition class=" pt-6">
-            <div class="box border-2 border-gray-300 px-6 py-6 uppercase text-black bg-white ">
-              Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
-              blind
-              texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-              <ul>
-                <li>Separated they live in Bookmarksgrove right</li>
-                <li>Separated they live in Bookmarksgrove right</li>
-              </ul>
+            <div class="box border-2 border-gray-300 px-6 py-6 text-black bg-white ">
+              <span class="pl-30 text-3xl font-serif">
+                <span class="font-bold"></span> <span class="font-bold"> DAE <span class="text-xl">(Information
+                    Technology) </span></span>–
+                Govt Collage Of Technology Kamalia<br>
+                Year: 2018-2021<br>
+                Marks: 2515 / 3200 (78%)
+              </span>
             </div>
           </div>
         </div>
@@ -504,7 +545,7 @@
         <div x-data="{ open: false }"
           :class="open ? 'bg-blue-500 text-white border mb-2 shadow ' : 'bg-gray-200 text-gray-800 border mb-2 shadow p-4 '">
           <div class="flex justify-between items-center ">
-            <span class="text-lg font-semibold mt-2 ml-2 uppercase">Diploma in Information Technology</span>
+            <span class="text-lg font-semibold mt-2 ml-2 uppercase">MATRIC</span>
             <button class="text-2xl font-bold focus:outline-none  " @click="open = !open">
               <span x-show="!open">+</span>
               <span x-show="open" class="mr-4">−</span>
@@ -512,20 +553,18 @@
           </div>
           <div x-show="open" x-transition class=" pt-6">
             <div class="box border-2 border-gray-300 px-6 py-6 text-black bg-white ">
-              Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
-              blind
-              texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-              <ul>
-                <li>Separated they live in Bookmarksgrove right</li>
-                <li>Separated they live in Bookmarksgrove right</li>
-              </ul>
+              <span class="pl-30 text-3xl font-serif">
+                <span class="font-bold">Matriculation</span> – Govt. High School No. 1, Kamalia<br>
+                Year: 2018<br>
+                Marks: 703 / 1100 (64%)
+              </span>
             </div>
           </div>
         </div>
         <div x-data="{ open: false }"
           :class="open ? 'bg-blue-500 text-white border mb-2 shadow ' : 'bg-gray-200 text-gray-800 border mb-2 shadow p-4 '">
           <div class="flex justify-between items-center ">
-            <span class="text-lg font-semibold mt-2 ml-2 uppercase">High School Secondary Education</span>
+            <span class="text-lg font-semibold mt-2 ml-2 uppercase">Frontend Development Course</span>
             <button class="text-2xl font-bold focus:outline-none  " @click="open = !open">
               <span x-show="!open">+</span>
               <span x-show="open" class="mr-4">−</span>
@@ -533,18 +572,14 @@
           </div>
           <div x-show="open" x-transition class=" pt-6">
             <div class="box border-2 border-gray-300 px-6 py-6 text-black bg-white ">
-              Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
-              blind
-              texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-              <ul>
-                <li>Separated they live in Bookmarksgrove right</li>
-                <li>Separated they live in Bookmarksgrove right</li>
-              </ul>
+              <p class="px-4 py-4 text-lg"> I have successfully completed a 6-month Frontend Development course. During
+                this time, I learned modern web technologies such as HTML, CSS, Tailwind CSS, JavaScript, and React.
+                This course has helped me build a strong foundation in web development and the ability to create
+                responsive, user-friendly websites and applications.</p>
             </div>
           </div>
-        </div>
     </section>
-    <section id="experience" class="mt-[50px] pl-2 pr-2 md:pr-10">
+    <section id="experience" class="mt-[50px] pl-2 pr-2 md:pr-10 pb-10">
       <div class="max-w-4xl mx-auto ">
         <p class="tracking-[4px] uppercase pl-2">Experience</p><br>
         <h2 class="text-xl font-bold mb-8 tracking-[4px]  pl-2 font-serif uppercase">Work Experience</h2><br>
@@ -572,12 +607,11 @@
 
 
             <div class="bg-gray-200 shadow-md rounded-xl p-6 animate-slide-in-left">
-              <h3 class="text-xl font-semibold">Full Stack Developer </h3>
-              <p class="text-gray-500 text-sm">2017-2018</p>
+              <h3 class="text-xl font-semibold">Frontend Developer </h3>
+              <p class="text-gray-500 text-sm">2024-2025</p>
               <p class="mt-3 text-gray-600">
-                Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial
-                two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees
-                but rooms think may.</p>
+                Worked on responsive websites using HTML, CSS, Tailwind CSS, and JavaScript.
+                Completed multiple projects focusing on UI/UX and clean design..</p>
             </div>
           </div>
 
@@ -594,12 +628,11 @@
             </div>
 
             <div class="bg-gray-200 shadow-md rounded-xl p-6 animate-slide-in-right">
-              <h3 class="text-xl font-semibold">Front End Developer at Google Company</h3>
-              <p class="text-gray-500 text-sm">2020 – 2022</p>
+              <h3 class="text-xl font-semibold">Django Developer</h3>
+              <p class="text-gray-500 text-sm">2025</p>
               <p class="mt-3 text-gray-600">
-                Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life
-                One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World
-                of Grammar.</p>
+                Gained backend experience with Django and Python.
+                Built and maintained web applications with dynamic functionality..</p>
             </div>
           </div>
 
@@ -617,321 +650,111 @@
             </div>
 
             <div class="bg-gray-200 shadow-md rounded-xl p-6  animate-slide-in-down">
-              <h3 class="text-xl font-semibold">Intern</h3>
-              <p class="text-gray-500 text-sm">2019 – 2020</p>
-              <p class="mt-3 text-gray-600">Even the all-powerful Pointing has no control about the blind texts it is an
-                almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided
-                to leave for the far World of Grammar.</p>
+              <h3 class="text-xl font-semibold">Internship</h3>
+              <p class="text-gray-500 text-sm">Panding</p>
+              <p class="mt-3 text-gray-600">Intern – Currently continuing my internship at Keys Devs Technology, Lahore,
+                for the last two months, where I am working on both frontend design and backend development using
+                Django, gaining real-world project experience and improving my teamwork and problem-solving skills.</p>
             </div>
           </div>
-          <div class="relative mb-10 pl-16">
-            <div class="absolute left-6 top-6 -translate-x-1/2 -translate-y-1/2
-                    w-12 h-12 rounded-full bg-[#A84CB8] text-white ring-4 ring-white
-                    flex items-center justify-center shadow">
-              <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M10.779 17.779 4.36 19.918 6.5 13.5m4.279 4.279 8.364-8.643a3.027 3.027 0 0 0-2.14-5.165 3.03 3.03 0 0 0-2.14.886L6.5 13.5m4.279 4.279L6.499 13.5m2.14 2.14 6.213-6.504M12.75 7.04 17 11.28" />
-              </svg>
 
-            </div>
-
-            <div class="bg-gray-200 shadow-md rounded-xl p-6 animate-slide-in-left">
-              <h3 class="text-xl font-semibold">Intern</h3>
-              <p class="text-gray-500 text-sm">2019 – 2020</p>
-              <p class="mt-3 text-gray-600">Even the all-powerful Pointing has no control about the blind texts it is an
-                almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided
-                to leave for the far World of Grammar.</p>
-            </div>
-          </div>
-          <div class="relative mb-10 pl-16">
-            <div class="absolute left-6 top-6 -translate-x-1/2 -translate-y-1/2
-                    w-12 h-12 rounded-full bg-[#2FA499] text-white ring-4 ring-white
-                    flex items-center justify-center shadow">
-              <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M10.779 17.779 4.36 19.918 6.5 13.5m4.279 4.279 8.364-8.643a3.027 3.027 0 0 0-2.14-5.165 3.03 3.03 0 0 0-2.14.886L6.5 13.5m4.279 4.279L6.499 13.5m2.14 2.14 6.213-6.504M12.75 7.04 17 11.28" />
-              </svg>
-
-            </div>
-
-            <div class="bg-gray-200 shadow-md rounded-xl p-6 animate-slide-in-right">
-              <h3 class="text-xl font-semibold">Intern</h3>
-              <p class="text-gray-500 text-sm">2019 – 2020</p>
-              <p class="mt-3 text-gray-600">Even the all-powerful Pointing has no control about the blind texts it is an
-                almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided
-                to leave for the far World of Grammar.</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
-    <section id="work" class="mt-52 ml-10 mr-10">
-      <p class="text-sm text-gray-600 uppercase tracking-[4px]">My Work</p>
-      <h1 class="text-2xl tracking[4px] uppercase tracking-[4px] font-bold font-serif animate-slide-in-right">Recent Work</h1>
-      <button class="pt-10 flex gap-4 pb-10 animate-slide-in-left">
-        <a href="" class="text-blue-800">Graphic Design</a>
-        <a href="">Web Design</a>
-        <a href=""> Software</a>
-        <a href="">APPS</a>
-      </button>
-    </section>
+    <h1 id="work" class="text-gray-500">Recent Work</h1><br>
+    <p class="text-4xl font-serif font-bold">My Work</p>
     <!-- ✅ Cards Section -->
-    <section class="py-16 bg-gray-50">
+    <section  class="py-16 bg-gray-50 pt-12">
       <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-
-
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-
-
+          <!-- Card 1 -->
           <div class="relative bg-white rounded-2xl shadow-md overflow-hidden h-[300px] group transition duration-300">
-
-
-            <img src="images/card 1.webp" alt="Card Image" class="w-full h-full object-cover">
-
-
+            <img src="images/w1.png" alt="Card Image" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-80 transition duration-300"></div>
-
-
             <div
               class="absolute top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition duration-300">
-              <a href="#"
+              <a href="images/w1.png" target="_blank"
                 class="bg-white text-blue-600 px-4 py-2 rounded-full font-semibold shadow-md hover:bg-gray-100">
                 Visit Link
               </a>
-            </div>
-
-
-            <div
-              class="absolute bottom-4 left-0 w-full flex justify-around text-white opacity-0 group-hover:opacity-100 transition duration-300 animate-slide-in-">
-
-              <span class="flex items-center gap-1 ">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M15 8a3 3 0 11-6 0 3 3 0 016 0zM2 14s1-1 4-1 4 1 4 1v1H2v-1z" />
-                </svg> 1.2k
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8z" />
-                </svg> 3.5k
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 18.657l-6.828-6.829a4 4 0 010-5.656z" />
-                </svg> 500
-              </span>
             </div>
           </div>
 
-
-
+          <!-- Card 2 -->
           <div class="relative bg-white rounded-2xl shadow-md overflow-hidden h-[300px] group transition duration-300">
-
-
-            <img src="images/card 2.webp" alt="Card Image" class="w-full h-full object-cover">
-
+            <img src="images/w2.png" alt="Card Image" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-80 transition duration-300"></div>
-
             <div
               class="absolute top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition duration-300">
-              <a href="#"
+              <a href="images/w2.png" target="_blank"
                 class="bg-white text-blue-600 px-4 py-2 rounded-full font-semibold shadow-md hover:bg-gray-100">
                 Visit Link
               </a>
-            </div>
-
-            <div
-              class="absolute bottom-4 left-0 w-full flex justify-around text-white opacity-0 group-hover:opacity-100 transition duration-300">
-
-              <span class="flex items-center gap-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M15 8a3 3 0 11-6 0 3 3 0 016 0zM2 14s1-1 4-1 4 1 4 1v1H2v-1z" />
-                </svg> 1.2k
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8z" />
-                </svg> 3.5k
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 18.657l-6.828-6.829a4 4 0 010-5.656z" />
-                </svg> 500
-              </span>
-            </div>
-          </div>
-          <div class="relative bg-white rounded-2xl shadow-md overflow-hidden h-[300px] group transition duration-300">
-
-
-            <img src="images/card 3.webp" alt="Card Image" class="w-full h-full object-cover">
-
-
-            <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-80 transition duration-300"></div>
-
-
-            <div
-              class="absolute top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition duration-300">
-              <a href="#"
-                class="bg-white text-blue-600 px-4 py-2 rounded-full font-semibold shadow-md hover:bg-gray-100">
-                Visit Link
-              </a>
-            </div>
-
-
-            <div
-              class="absolute bottom-4 left-0 w-full flex justify-around text-white opacity-0 group-hover:opacity-100 transition duration-300">
-
-              <span class="flex items-center gap-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M15 8a3 3 0 11-6 0 3 3 0 016 0zM2 14s1-1 4-1 4 1 4 1v1H2v-1z" />
-                </svg> 1.2k
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8z" />
-                </svg> 3.5k
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 18.657l-6.828-6.829a4 4 0 010-5.656z" />
-                </svg> 500
-              </span>
             </div>
           </div>
 
+          <!-- Card 3 -->
           <div class="relative bg-white rounded-2xl shadow-md overflow-hidden h-[300px] group transition duration-300">
-
-            <img src="images/card 4.webp" alt="Card Image" class="w-full h-full object-cover">
-
+            <img src="images/w3.png" alt="Card Image" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-80 transition duration-300"></div>
-
             <div
               class="absolute top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition duration-300">
-              <a href="#"
+              <a href="images/w3.png" target="_blank"
                 class="bg-white text-blue-600 px-4 py-2 rounded-full font-semibold shadow-md hover:bg-gray-100">
                 Visit Link
               </a>
-            </div>
-
-
-            <div
-              class="absolute bottom-4 left-0 w-full flex justify-around text-white opacity-0 group-hover:opacity-100 transition duration-300">
-
-              <span class="flex items-center gap-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M15 8a3 3 0 11-6 0 3 3 0 016 0zM2 14s1-1 4-1 4 1 4 1v1H2v-1z" />
-                </svg> 1.2k
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8z" />
-                </svg> 3.5k
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 18.657l-6.828-6.829a4 4 0 010-5.656z" />
-                </svg> 500
-              </span>
             </div>
           </div>
 
+          <!-- Card 4 -->
           <div class="relative bg-white rounded-2xl shadow-md overflow-hidden h-[300px] group transition duration-300">
-
-            <img src="images/card 5.webp" alt="Card Image" class="w-full h-full object-cover">
-
+            <img src="images/w4.png" alt="Card Image" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-80 transition duration-300"></div>
-
             <div
               class="absolute top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition duration-300">
-              <a href="#"
+              <a href="images/w4.png" target="_blank"
                 class="bg-white text-blue-600 px-4 py-2 rounded-full font-semibold shadow-md hover:bg-gray-100">
                 Visit Link
               </a>
-            </div>
-
-            <div
-              class="absolute bottom-4 left-0 w-full flex justify-around text-white opacity-0 group-hover:opacity-100 transition duration-300">
-
-              <span class="flex items-center gap-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M15 8a3 3 0 11-6 0 3 3 0 016 0zM2 14s1-1 4-1 4 1 4 1v1H2v-1z" />
-                </svg> 1.2k
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8z" />
-                </svg> 3.5k
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 18.657l-6.828-6.829a4 4 0 010-5.656z" />
-                </svg> 500
-              </span>
             </div>
           </div>
+
+          <!-- Card 5 -->
           <div class="relative bg-white rounded-2xl shadow-md overflow-hidden h-[300px] group transition duration-300">
-
-
-            <img src="images/card 6.webp" alt="Card Image" class="w-full h-full object-cover">
-
-
+            <img src="images/w7.png" alt="Card Image" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-80 transition duration-300"></div>
-
             <div
               class="absolute top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition duration-300">
-              <a href="#"
+              <a href="images/w7.png" target="_blank"
                 class="bg-white text-blue-600 px-4 py-2 rounded-full font-semibold shadow-md hover:bg-gray-100">
                 Visit Link
               </a>
             </div>
+          </div>
 
+          <!-- Card 6 -->
+          <div class="relative bg-white rounded-2xl shadow-md overflow-hidden h-[300px] group transition duration-300">
+            <img src="images/w6.png" alt="Card Image" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-80 transition duration-300"></div>
             <div
-              class="absolute bottom-4 left-0 w-full flex justify-around text-white opacity-0 group-hover:opacity-100 transition duration-300 ">
-
-              <span class="flex items-center gap-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M15 8a3 3 0 11-6 0 3 3 0 016 0zM2 14s1-1 4-1 4 1 4 1v1H2v-1z" />
-                </svg> 1.2k
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8z" />
-                </svg> 3.5k
-              </span>
-
-              <span class="flex items-center gap-1">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 18.657l-6.828-6.829a4 4 0 010-5.656z" />
-                </svg> 500
-              </span>
+              class="absolute top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition duration-300">
+              <a href="images/w6.png" target="_blank"
+                class="bg-white text-blue-600 px-4 py-2 rounded-full font-semibold shadow-md hover:bg-gray-100">
+                Visit Link
+              </a>
             </div>
           </div>
 
         </div>
-        <button class="w-full h-[60px] bg-blue-500 text-white mt-10 uppercase animate-slide-in-up
-      ">Learn More</button>
+
+        <!-- Learn More button -->
+        <button class="w-full h-[60px] bg-blue-500 text-white mt-10 uppercase animate-slide-in-up">
+          Learn More
+        </button>
       </div>
     </section>
+
     <section id="blog" class="py-16 bg-gray-50">
       <div class="max-w-6xl mx-auto px-6">
 
@@ -984,7 +807,8 @@
           </div>
 
         </div>
-        <button class="w-full h-[60px] bg-blue-500 text-white mt-10 animate-slide-in-up animate-slide-in-left">Learn More</button>
+        <button class="w-full h-[60px] bg-blue-500 text-white mt-10 animate-slide-in-up animate-slide-in-left">Learn
+          More</button>
       </div>
     </section>
     <p class="tracking-[3px] pl-6 pt-10 text-sm sm:text-base pb-2">Get in Touch</p>
@@ -1003,7 +827,14 @@
             </svg>
 
           </div>
-          <p class="text-blue-500 cursor-pointer">ateekjutt189@gmail.com</p>
+          <p>
+          <p>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ateekjutt189@gmail.com&su=Hello Ateek&body=I want to contact you."
+              target="_blank" class="text-blue-500 cursor-pointer">
+              ateekjutt189@gmail.com
+            </a>
+          </p>
+          </p>
         </div>
 
 
