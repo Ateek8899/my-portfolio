@@ -85,6 +85,26 @@
   .animate-slide {
     animation: slide 6s infinite ease-in-out;
   }
+
+  .animate-slide {
+    animation: slide 6s infinite ease-in-out;
+    animation-play-state: paused;
+  }
+  /* Visibility-based animation control */
+  /* Pause section animations by default; run when in view */
+  [class*="animate-slide-"], .animate-text {
+    animation-play-state: paused;
+    opacity: 0;
+  }
+  .in-view {
+    animation-play-state: running;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  .played-once {
+    opacity: 1 !important;
+    animation-play-state: paused;
+  }
 </style>
 
 <body class="flex" x-data="{ open: false  }">
@@ -94,7 +114,7 @@
     </svg>
   </button>
 
-  <!-- 📂 Sidebar -->
+  <!-- Sidebar -->
   <aside
     class="fixed  top-0 left-0 w-60 md:ml-0 sm:ml-0 h-full bg-gray-100/95 backdrop-blur-sm overflow-y-auto z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300"
     :class="open ? 'translate-x-0' : '-translate-x-full'">
@@ -106,7 +126,7 @@
       </button>
     </div>
 
-    <!-- 👨 Profile & Menu -->
+    <!-- Profile & Menu -->
     <div class="p-2 space-y-6 pt-8">
       <div class="text-center">
         <img src="images/ff.jpg" class="w-32 h-32 rounded-full mx-auto">
@@ -154,7 +174,7 @@
           @click="open = false">Contact</a>
       </nav>
     </div>
-    <p class="px-4 py-4 text-sm text-center pb-28 pt-10">© Copyright ©2025 All rights reserved | This template is made
+    <p class="px-4 py-4 text-sm text-center pb-28 pt-10"> 2025 All rights reserved | This template is made
       with
       by<a class="text-blue-500 cursor-pointer"> Colorlib</a>
       Demo Images: <a class="text-blue-500 cursor-pointer">Unsplash.com</a>
@@ -163,7 +183,7 @@
 
   </aside>
 
-  <!-- 📑 Main Content -->
+  <!-- Main Content -->
   <main id="home" class=" flex-1 w-full md:pl-72">
     <div class="relative w-full h-screen overflow-hidden">
 
@@ -172,7 +192,7 @@
 
 
         <div class="w-1/2 h-full flex items-center  bg-cover bg-center text-white"
-          style="background-image: url('images/s\ 1.webp');">
+          style="background-image: url('images/s\ 1.png');">
           <h1 class="text-3xl md:text-6xl font-bold animate-text text-black px-4 py-2 ml-4 font-serif ">
             Hi! <br> I am Ateek
             <p class="text-xl bold-none pt-2 ">Offering creative and reliable web development services.</p>
@@ -217,43 +237,39 @@
           and creating websites that make a real impact.</em>
       </p><br><br>
 
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4 gap-2 pr-1 pb-20 justify-items-center font-serif font-bold">
-        <div
-          class="border-b-4  border-[#2C98F0] w-full sm:w-52 h-40 p-4  bg-gray-300 text-center  shadow-gray-500 text-lg pb-2 sm:pb-4 shadow-none"
-          data-animate="slide-in-up">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-pink-500 mb-4" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-          </svg>
-
-          Design & Creativity
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-4 pb-20 font-serif">
+        <!-- Design & Creativity Card -->
+        <div class="bg-gray-100 p-8 text-center rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" data-animate="slide-in-up">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl text-pink-500">
+            <span class="transform -rotate-45">‹</span>
+          </div>
+          <h3 class="text-lg font-semibold mb-2 text-gray-800">Frontend Development</h3>
+          <div class="h-1 w-16 mx-auto bg-blue-500 rounded-full"></div>
         </div>
-        <div
-          class="border-b-4 border-[#EC5453] w-full sm:w-52 h-40 p-4  bg-gray-300 text-center  shadow-gray-500  text-lg animate-slide-in-left pb-2 sm:pb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500 mb-4" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
-          </svg>
-          Development Skills
+        
+        <!-- Development Skills Card -->
+        <div class="bg-gray-100 p-8 text-center rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" data-animate="slide-in-up">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl text-blue-500">
+            <span>→</span>
+          </div>
+          <h3 class="text-lg font-semibold mb-2 text-gray-800">Development Skills</h3>
+          <div class="h-1 w-16 mx-auto bg-red-500 rounded-full"></div>
         </div>
-        <div
-          class="border-b-4 border-[#F9BF3F] w-full sm:w-52 h-40 p-4 bg-gray-300 text-center  shadow-gray-500 text-lg animate-slide-in-right pb-8 sm:pb-4">
-          <svg class="w-12 h-12 text-[#F9C34A] dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-            width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-linejoin="round" stroke-width="2"
-              d="M7.58209 8.96025 9.8136 11.1917l-1.61782 1.6178c-1.08305-.1811-2.23623.1454-3.07364.9828-1.1208 1.1208-1.32697 2.8069-.62368 4.1363.14842.2806.42122.474.73509.5213.06726.0101.1347.0133.20136.0098-.00351.0666-.00036.1341.00977.2013.04724.3139.24069.5867.52125.7351 1.32944.7033 3.01552.4971 4.13627-.6237.8375-.8374 1.1639-1.9906.9829-3.0736l4.8107-4.8108c1.0831.1811 2.2363-.1454 3.0737-.9828 1.1208-1.1208 1.3269-2.80688.6237-4.13632-.1485-.28056-.4213-.474-.7351-.52125-.0673-.01012-.1347-.01327-.2014-.00977.0035-.06666.0004-.13409-.0098-.20136-.0472-.31386-.2406-.58666-.5212-.73508-1.3294-.70329-3.0155-.49713-4.1363.62367-.8374.83741-1.1639 1.9906-.9828 3.07365l-1.7788 1.77875-2.23152-2.23148-1.41419 1.41424Zm1.31056-3.1394c-.04235-.32684-.24303-.61183-.53647-.76186l-1.98183-1.0133c-.38619-.19746-.85564-.12345-1.16234.18326l-.86321.8632c-.3067.3067-.38072.77616-.18326 1.16235l1.0133 1.98182c.15004.29345.43503.49412.76187.53647l1.1127.14418c.3076.03985.61628-.06528.8356-.28461l.86321-.8632c.21932-.21932.32446-.52801.2846-.83561l-.14417-1.1127ZM19.4448 16.4052l-3.1186-3.1187c-.7811-.781-2.0474-.781-2.8285 0l-.1719.172c-.7811.781-.7811 2.0474 0 2.8284l3.1186 3.1187c.7811.781 2.0474.781 2.8285 0l.1719-.172c.7811-.781.7811-2.0474 0-2.8284Z" />
-          </svg>
-
-          <p class="pt-4">Backend</p>
+        
+        <!-- Backend Card -->
+         <div class="bg-gray-100 p-8 text-center rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" data-animate="slide-in-up">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl text-blue-500">
+            <span>→</span>
+          </div>
+          <h3 class="text-lg font-semibold mb-2 text-gray-800">Quality Assurance</h3>
+          <div class="h-1 w-16 mx-auto bg-red-500 rounded-full"></div>
         </div>
-        <div
-          class="border-b-4 border-[#A84CB8] w-full sm:w-52  h-40 p-4   bg-gray-300 shadow-gray-500 text-[16px] text-center animate-slide-in-down pb-8 sm:pb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12  text-green-500 mb-4" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg>
-          Tools & Technologies
+         <div class="bg-gray-100 p-8 text-center rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" data-animate="slide-in-up">
+          <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl text-pink-500">
+            <span class="transform -rotate-45">‹</span>
+          </div>
+          <h3 class="text-lg font-semibold mb-2 text-gray-800">Tools and technologies</h3>
+          <div class="h-1 w-16 mx-auto bg-blue-500 rounded-full"></div>
         </div>
       </div>
       <div class="grid grid-cols-1 ">
@@ -295,55 +311,11 @@
           </div>
 
           <!-- Card 2 -->
-          <div class="relative bg-white shadow-xl border-b-4 border-[#EC5453] h-100 pt-20 px-8 text-center">
-            <div
-              class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-28 h-28 bg-[#EC5453] flex items-center justify-center"
-              style="clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);">
-              <svg class="w-10 h-10 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M19 6c0 1.657-3.134 3-7 3S5 7.657 5 6m14 0c0-1.657-3.134-3-7-3S5 4.343 5 6m14 0v6M5 6v6m0 0c0 1.657 3.134 3 7 3s7-1.343 7-3M5 12v6c0 1.657 3.134 3 7 3s7-1.343 7-3v-6" />
-              </svg>
-
-            </div>
-            <h3 class="mt-10 text-xl font-semibold">Backend Development</h3>
-            <p class="mt-6 mb-6 text-gray-400">I have experience working with the Django framework and Python to build and
-              maintain functional and secure web applications.</p>
-          </div>
-
+          
           <!-- Card 3 -->
-          <div class="relative bg-white  shadow-xl border-b-4 border-[#F9BF3F] h-100 pt-20 px-8 text-center">
-            <div
-              class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-28 h-28 bg-[#F9BF3F] flex items-center justify-center"
-              style="clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);">
-              <svg class="w-10 h-10 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path fill-rule="evenodd"
-                  d="M5 4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4Zm12 12V5H7v11h10Zm-5 1a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H12Z"
-                  clip-rule="evenodd" />
-              </svg>
-
-            </div>
-            <h3 class="mt-10 text-xl font-semibold">Web Applications</h3>
-            <p class="mt-6 mb-6 text-gray-400">I have successfully completed 10+ projects, including business websites,
-              portfolios, and interactive applications that solve real-world problems.</p>
-          </div>
+          
           <!-- Card 4 -->
-          <div class="relative bg-white  shadow-xl border-b-4 border-[#A84CB8] h-100 pt-20 px-8 text-center">
-            <div
-              class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-28 h-28 bg-[#A84CB8] flex items-center justify-center"
-              style="clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);">
-              <svg class="w-10 h-10 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                width="24" height="24" fill="none" viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M12 15v5m-3 0h6M4 11h16M5 15h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1Z" />
-              </svg>
-
-            </div>
-            <h3 class="mt-10 text-xl font-semibold">UI/UX & Design</h3>
-            <p class="mt-6 mb-6 text-gray-400">With an eye for design, I work on creating user-friendly layouts that are both
-              attractive and functional, ensuring a great digital experience.</p>
-          </div>
+          
 
           <!-- Card 5 -->
           <div class="relative bg-white shadow-xl border-b-4 border-[#2FA499] h-100 pt-20 px-8 text-center">
@@ -478,7 +450,7 @@
 
         <div class="animate-slide-in-right">
           <div class="flex justify-between mb-1">
-            <span class="font-bold">Django</span>
+            <span class="font-bold">React Js</span>
             <span class="text-indigo-600 font-bold">60%</span>
           </div>
           <div class="w-full bg-gray-200 h-2 rounded">
@@ -653,7 +625,7 @@
     </section>
     <h1 id="work" class="text-gray-500">Recent Work</h1><br>
     <p class="text-4xl font-serif font-bold">My Work</p>
-    <!-- ✅ Cards Section -->
+    <!-- Cards Section -->
     <section  class="py-16 bg-gray-50 pt-12">
       <div class="max-w-6xl mx-auto px-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -813,7 +785,7 @@
             <svg class="w-12 h-12 text-blue-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
               width="24" height="24" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M16 10.5h.01m-4.01 0h.01M8 10.5h.01M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-6.6a1 1 0 0 0-.69.275l-2.866 2.723A.5.5 0 0 1 8 18.635V17a1 1 0 0 0-1-1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" />
+                d="M16 10.5h.01m-4.01 0h.01M8 10.5h.01M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-6.6a1 1 0 0 0-.69.275l-2.866 2.723A.5.5 0 0 1 8 18.635V17a1 1 0 0 0-1-1H5a1 1 0 0 0-1-1V6a1 1 0 0 1 1-1Z" />
             </svg>
 
           </div>
@@ -845,7 +817,7 @@
             <svg class="w-12 h-12 text-blue-500 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
               width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
               <path fill-rule="evenodd"
-                d="M7 2a2 2 0 0 0-2 2v1a1 1 0 0 0 0 2v1a1 1 0 0 0 0 2v1a1 1 0 1 0 0 2v1a1 1 0 1 0 0 2v1a1 1 0 1 0 0 2v1a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H7Zm3 8a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm-1 7a3 3 0 0 1 3-3h2a3 3 0 0 1 3 3 1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1Z"
+                d="M7 2a2 2 0 0 0-2 2v1a1 1 0 0 0 0 2v1a1 1 0 0 0 0 2v1a1 1 0 1 0 0 2v1a1 1 0 1 0 0 2v1a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H7Zm3 8a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm-1 7a3 3 0 0 1 3-3h2a3 3 0 0 1 3 3 1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1Z"
                 clip-rule="evenodd" />
             </svg>
 
@@ -872,24 +844,74 @@
       </form>
     </section>
     <script>
-      const counters = document.querySelectorAll('.counter');
+      window.addEventListener('DOMContentLoaded', () => {
+        const allAnimated = document.querySelectorAll('[class*="animate-slide-"], .animate-text');
+        const contactAnimated = document.querySelectorAll('#contact [class*="animate-slide-"], #contact .animate-text');
+        const nonContactAnimated = Array.from(allAnimated).filter(el => !el.closest('#contact'));
+        const counters = document.querySelectorAll('.counter');
+        const sliders = document.querySelectorAll('.animate-slide');
+        const countersStarted = new WeakSet();
 
-      counters.forEach(counter => {
-        const updateCount = () => {
+        function startCounter(counter) {
+          if (countersStarted.has(counter)) return;
+          countersStarted.add(counter);
           const target = +counter.getAttribute('data-target');
-          const count = +counter.innerText;
-
-          const increment = target / 100; // change 100 for speed
-
-          if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(updateCount, 20); // adjust 20 for speed
-          } else {
-            counter.innerText = target;
+          const step = Math.max(1, Math.ceil(target / 100));
+          function tick() {
+            const current = +counter.innerText;
+            if (current < target) {
+              counter.innerText = Math.min(target, current + step);
+              setTimeout(tick, 20);
+            } else {
+              counter.innerText = target;
+            }
           }
-        };
+          tick();
+        }
 
-        updateCount();
+        // Non-CONTACT animations run when visible
+        const animObserver = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            const el = entry.target;
+            if (entry.isIntersecting) {
+              el.classList.add('in-view', 'played-once');
+              obs.unobserve(el);
+            }
+          });
+        }, { root: null, rootMargin: '0px 0px -15% 0px', threshold: 0.5 });
+        nonContactAnimated.forEach(el => animObserver.observe(el));
+
+        // CONTACT animations: stricter trigger so they only run when you reach CONTACT
+        const contactObserver = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            const el = entry.target;
+            if (entry.isIntersecting) {
+              el.classList.add('in-view', 'played-once');
+              obs.unobserve(el);
+            }
+          });
+        }, { root: null, rootMargin: '0px 0px -35% 0px', threshold: 0.75 });
+        contactAnimated.forEach(el => contactObserver.observe(el));
+
+        // Counters: start once when sufficiently in view
+        const counterObserver = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              startCounter(entry.target);
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { root: null, rootMargin: '0px 0px -20% 0px', threshold: 0.7 });
+        counters.forEach(c => counterObserver.observe(c));
+
+        // Hero slider: play only while hero section is visible; pause when out of view
+        const sliderObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            const el = entry.target;
+            el.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+          });
+        }, { root: null, threshold: 0.3 });
+        sliders.forEach(s => sliderObserver.observe(s));
       });
     </script>
 </body>
